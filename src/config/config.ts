@@ -9,7 +9,7 @@ export type VaultConfig = {
 export type ChainConfig = {
   id: number
   name: string
-  rpcPath: 'mainnet' | 'polygon'
+  rpcPath: 'mainnet' | 'polygon' | 'katana'
   vaults: VaultConfig[]
 }
 
@@ -32,6 +32,18 @@ export const APP_CONFIG: ChainConfig[] = [
     name: 'Polygon',
     rpcPath: 'polygon',
     vaults: [],
+  },
+  {
+    id: 747474,
+    name: 'Katana',
+    rpcPath: 'katana',
+    vaults: [
+      {
+        name: 'Hyperlane Katana Solver',
+        address: '0x680e8ecb908a2040232ef139a0a52cbe47b9f15b',
+        referenceUrl: 'https://katanascan.com/address/0x680e8ecb908a2040232ef139a0a52cbe47b9f15b',
+      },
+    ],
   },
 ]
 

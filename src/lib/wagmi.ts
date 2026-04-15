@@ -1,7 +1,7 @@
 import { createAppKit } from '@reown/appkit/react'
 import { mainnet, polygon } from '@reown/appkit/networks'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
-import { createPublicClient, http, type PublicClient } from 'viem'
+import { createPublicClient, defineChain, http, type PublicClient } from 'viem'
 
 import { APP_CONFIG } from '../config/config'
 
@@ -16,7 +16,30 @@ const metadata = {
   icons: ['https://avatars.githubusercontent.com/u/1833646?s=200&v=4'],
 }
 
-function createRpcUrl(path: 'mainnet' | 'polygon') {
+const appKitFeatures = {
+  analytics: false,
+  email: false,
+  socials: [],
+  swaps: false,
+  onramp: false,
+  pay: false,
+  payWithExchange: false,
+  payments: false,
+}
+
+const metaMaskWalletId = 'c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96'
+
+const excludedWalletIds = [
+  '8a0ee50d1f22f6651afcae7eb4253e52a3310b90af5daef78a8c4929a9bb99d4',
+  '0b415a746fb9ee99cce155c2ceca0c6f6061b1dbca2d722b3ba16381d0562150',
+  '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0',
+]
+
+function createRpcUrl(path: 'mainnet' | 'polygon' | 'katana') {
+  if (path === 'katana') {
+    return 'https://nodes.sequence.app/katana'
+  }
+
   return `https://nodes.sequence.app/${path}/${sequenceAccessKey}`
 }
 
@@ -38,11 +61,36 @@ const polygonChain = {
   },
 }
 
-export const appChains = [ethereumChain, polygonChain] as [typeof ethereumChain, typeof polygonChain]
+const katanaChain = defineChain({
+  id: 747474,
+  name: 'Katana',
+  nativeCurrency: {
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: { http: [createRpcUrl('katana')] },
+    public: { http: [createRpcUrl('katana')] },
+  },
+  blockExplorers: {
+    default: {
+      name: 'KatanaScan',
+      url: 'https://katanascan.com',
+    },
+  },
+})
+
+export const appChains = [ethereumChain, polygonChain, katanaChain] as [
+  typeof ethereumChain,
+  typeof polygonChain,
+  typeof katanaChain,
+]
 
 const wagmiAdapter = new WagmiAdapter({
   projectId,
   networks: appChains,
+  multiInjectedProviderDiscovery: true,
   ssr: false,
 })
 
@@ -51,6 +99,7 @@ createAppKit({
   networks: appChains,
   projectId,
   metadata,
+<<<<<<< HEAD
   features: {
     analytics: false,
     email: false,
@@ -60,6 +109,14 @@ createAppKit({
   // Empty array = no hardcoded third-party wallets (removes Binance, Trust, etc.)
   includeWalletIds: [],
   enableEIP6963: true,
+=======
+  allWallets: 'HIDE',
+  includeWalletIds: [metaMaskWalletId],
+  excludeWalletIds: excludedWalletIds,
+  featuredWalletIds: [metaMaskWalletId],
+  enableEIP6963: true,
+  features: appKitFeatures,
+>>>>>>> 0ad357a (add katana hyperlane solver vault)
 })
 
 export const wagmiConfig = wagmiAdapter.wagmiConfig

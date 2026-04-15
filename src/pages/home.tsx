@@ -48,7 +48,17 @@ export function HomePage() {
             Connect a wallet, pick a supported chain and vault, inspect your position, then deposit or withdraw directly from the same screen.
           </p>
         </div>
-        <WalletButton />
+        <div className="flex flex-col items-start gap-3 sm:items-end">
+          <WalletButton />
+          <a
+            className="inline-flex min-w-[148px] items-center justify-center rounded-2xl border border-white/12 bg-white/5 px-4 py-2.5 text-sm font-medium text-slate-100 transition hover:bg-white/10"
+            href="https://app.trails.build"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Swap
+          </a>
+        </div>
       </header>
 
       <section className="grid gap-6 xl:grid-cols-[420px_minmax(0,1fr)]">
