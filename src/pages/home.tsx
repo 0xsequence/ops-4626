@@ -43,9 +43,7 @@ export function HomePage() {
       <header className="mb-8 flex flex-col gap-5 rounded-[2rem] border border-white/10 bg-slate-950/65 p-6 shadow-[0_30px_100px_rgba(2,6,23,0.45)] backdrop-blur-xl sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-sm uppercase tracking-[0.3em] text-cyan-300/70">ERC-4626 utility</p>
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Vault operations without dashboard bloat
-          </h1>
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Vault operations app</h1>
           <p className="mt-3 max-w-2xl text-sm text-slate-400 sm:text-base">
             Connect a wallet, pick a supported chain and vault, inspect your position, then deposit or withdraw directly from the same screen.
           </p>

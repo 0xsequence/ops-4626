@@ -30,6 +30,19 @@ a {
   text-decoration: none;
 }
 
+a[href],
+button:not(:disabled),
+select:not(:disabled),
+[role='button']:not([aria-disabled='true']) {
+  cursor: pointer;
+}
+
+button:disabled,
+select:disabled,
+[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
 button,
 input,
 select {
