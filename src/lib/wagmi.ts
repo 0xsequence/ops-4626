@@ -99,24 +99,12 @@ createAppKit({
   networks: appChains,
   projectId,
   metadata,
-<<<<<<< HEAD
-  features: {
-    analytics: false,
-    email: false,
-    socials: [],
-  },
-  // Only show WalletConnect + EIP-6963 detected browser extensions (MetaMask, Rabby, etc.)
-  // Empty array = no hardcoded third-party wallets (removes Binance, Trust, etc.)
-  includeWalletIds: [],
-  enableEIP6963: true,
-=======
   allWallets: 'HIDE',
   includeWalletIds: [metaMaskWalletId],
   excludeWalletIds: excludedWalletIds,
   featuredWalletIds: [metaMaskWalletId],
   enableEIP6963: true,
   features: appKitFeatures,
->>>>>>> 0ad357a (add katana hyperlane solver vault)
 })
 
 export const wagmiConfig = wagmiAdapter.wagmiConfig
