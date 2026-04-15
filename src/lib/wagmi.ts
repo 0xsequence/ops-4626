@@ -56,6 +56,10 @@ createAppKit({
     email: false,
     socials: [],
   },
+  // Only show WalletConnect + EIP-6963 detected browser extensions (MetaMask, Rabby, etc.)
+  // Empty array = no hardcoded third-party wallets (removes Binance, Trust, etc.)
+  includeWalletIds: [],
+  enableEIP6963: true,
 })
 
 export const wagmiConfig = wagmiAdapter.wagmiConfig
