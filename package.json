@@ -15,12 +15,17 @@
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "sonner": "^2.0.7",
-    "viem": "^2.47.17",
-    "wagmi": "^3.6.1"
+    "viem": "^2.48.0",
+    "wagmi": "^3.6.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "axios": ">=1.15.0"
+    }
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.2",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
