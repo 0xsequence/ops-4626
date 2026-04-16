@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - uses: actions/checkout@v4
 
@@ -34,6 +35,8 @@ jobs:
       - run: pnpm build
         env:
           BASE_PATH: /ops-4626/
+          VITE_REOWN_PROJECT_ID: ${{ vars.VITE_REOWN_PROJECT_ID }}
+          VITE_SEQUENCE_ACCESS_KEY: ${{ vars.VITE_SEQUENCE_ACCESS_KEY }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
