@@ -18,11 +18,6 @@
     "viem": "^2.48.0",
     "wagmi": "^3.6.2"
   },
-  "pnpm": {
-    "overrides": {
-      "axios": ">=1.15.0"
-    }
-  },
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^25.6.0",

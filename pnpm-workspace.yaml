@@ -1,1 +1,3 @@
 minimumReleaseAge: 4320
+overrides:
+  axios: '>=1.15.0'
