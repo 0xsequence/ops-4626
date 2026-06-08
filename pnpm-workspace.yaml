@@ -1,5 +1,5 @@
 minimumReleaseAge: 4320
 overrides:
   axios: '>=1.15.0'
-onlyBuiltDependencies:
-  - '@reown/appkit'
+allowBuilds:
+  '@reown/appkit': true
