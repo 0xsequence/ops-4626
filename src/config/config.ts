@@ -20,18 +20,29 @@ export const APP_CONFIG: ChainConfig[] = [
     rpcPath: 'mainnet',
     vaults: [
       {
-        name: 'Alpha USDC Forex V2',
+        name: 'Hyperlane USDC Vault on Ethereum (new)',
+        address: '0xA9C9a8FB36Ce3e5ffBAC3757dA7141262723541F',
+        referenceUrl: 'https://etherscan.io/address/0xA9C9a8FB36Ce3e5ffBAC3757dA7141262723541F',
+      },
+      {
+        name: 'Alpha USDC Forex V2 (example)',
         address: '0x153Bd1abE60104Bd46aa05a27fA12D1346D64A57',
         referenceUrl:
           'https://app.morpho.org/ethereum/vault/0x153Bd1abE60104Bd46aa05a27fA12D1346D64A57/alpha-usdc-forex-v2',
-      },
+      }
     ],
   },
   {
     id: 137,
     name: 'Polygon',
     rpcPath: 'polygon',
-    vaults: [],
+    vaults: [
+      {
+        name: 'Hyperlane USDC Vault on Polygon (new)',
+        address: '0x28a96f9928dB06317356caACd5641C4Fde4424C7',
+        referenceUrl: 'https://polygonscan.com/address/0x28a96f9928dB06317356caACd5641C4Fde4424C7',
+      },
+    ],
   },
   {
     id: 747474,
